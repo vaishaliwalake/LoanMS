@@ -1,0 +1,85 @@
+<html>
+    <head>
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+<div style="background-color:red; color:white;" class="jumbotron">
+     <div class="row">
+    <a class="navbar-brand" href="#" style="max-width: 10%;">
+        {% load static %}
+
+ <img src="static/Chase-logo.jpg" class="img-thumbnail" > <h1 class= text-white>Welcome to Awesome Bank</h1>
+
+
+    </a>
+ </div >
+  <p class="lead">Loans Loans Loans !!</p>
+  <hr class="my-4">
+  <p>Get you loan approved today</p>
+</div>
+
+ <div class="btn-group btn-group-lg">
+     <div class="row"><<p style="margin-left: 2.5em;"> Please login to access the page</p>
+     </div>
+{% if user.is_authenticated %}
+     <p style="margin-left: 2.5em;"></p> <font size="3" color="green">Hi {{ user.username }}</font>
+   <p style="margin-left: 2.5em;"><a href="{% url 'logout' %}">Log out</a></p>
+
+
+{% endif %}
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+<div class="card" style="width: 18rem;">
+  <i class="fa fa-cogs fa-5x" aria-hidden="true"></i>
+  <div class="card-body">
+    <h5 class="card-title">MDM</h5>
+    <p class="card-text">Launch MDM Application</p>
+
+    <a href="mdmteam/reports" class="btn btn-primary">Launch MDM Application</a>
+
+  </div>
+</div>
+        </div>
+        <div class="col-lg-4">
+<div class="card" style="width: 18rem;">
+<i class="fa fa-university fa-5x" aria-hidden="true"></i>
+  <div class="card-body">
+    <h5 class="card-title">BANK</h5>
+    <p class="card-text">Bank Manager Application</p>
+    <a href="bankmgr/loanApprovals" class="btn btn-primary">Launch BANK Application</a>
+  </div>
+</div>
+        </div>
+        <div class="col-lg-4">
+<div class="card" style="width: 18rem;">
+<i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
+  <div class="card-body">
+    <h5 class="card-title">CUSTOMER</h5>
+    <p class="card-text">Customer Self Serve Screen</p>
+    <a href="selfserv/login" class="btn btn-primary">Launch Cust Self Serve</a>
+  </div>
+</div>
+        </div><div class="col-lg-4">
+
+  <div class="card-body">
+    <h5 class="card-title">RestApi for MDM</h5>
+    <a href="mdmteam/RestView" class="btn btn-primary">Rest Api</a>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

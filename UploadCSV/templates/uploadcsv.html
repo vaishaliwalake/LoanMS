@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+ <div>   <form  method="POST"  action='Uploadcsv'  enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file1"> Upload a file</label>
+
+        <input type="file" id="file1" name="file"><br>
+
+        <button type="submit">Upload</button>
+     <div class="progress">
+  <div class="progress-bar" style="width:70%"></div>
+</div>
+    </form>
+ </div>>
+</body>>

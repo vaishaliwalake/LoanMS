@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../PycharmProjects/ImageSearch/.idea/ImageSearch.iml" filepath="$PROJECT_DIR$/../PycharmProjects/ImageSearch/.idea/ImageSearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/LoanMS.iml" filepath="$PROJECT_DIR$/.idea/LoanMS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../env/django-challenge/.idea/django-challenge.iml" filepath="$PROJECT_DIR$/../env/django-challenge/.idea/django-challenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PycharmProjects/restapi/.idea/restapi.iml" filepath="$PROJECT_DIR$/../PycharmProjects/restapi/.idea/restapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../env/testbd/test_djch/.idea/test_djch.iml" filepath="$PROJECT_DIR$/../env/testbd/test_djch/.idea/test_djch.iml" />
+    </modules>
+  </component>
+</project>

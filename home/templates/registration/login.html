@@ -1,0 +1,11 @@
+
+<form method="post" action="http://127.0.0.1:8002/selfserv/CustomersApp">
+  {% csrf_token %}
+  {{ form.as_p }}
+{% if error %}
+{{ error }}
+{% endif %}
+
+<input type="hidden" name="next" value="{{ request.GET.next }}"/>
+<input type="submit" name="submit" value="Log in"/>
+</form>

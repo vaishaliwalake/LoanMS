@@ -1,0 +1,44 @@
+<html>
+<form action="{% url 'validate' %}">
+{% csrf_token %}
+<div  class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <table  class="zebra" style="max-width:300px">
+                <thead class="table table-dark">
+                <tr>
+                    <th scope="col">id</th>>
+                   <th scope="col">first_name</th>
+                    <th scope="col">last_name</th>
+                     <th scope="col">email</th>
+                    <th scope="col">CreditScore</th>
+                    <th scope="col">RequestedLoanAmount</th>
+                    <th scope="col">DurationMonths</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody class="table table-primary">
+
+                {% for i in l_data %}
+                <tr>
+
+                    <th scope="row" >{{ i.id }}</th>
+                    <td   >{{ i.first_name }}</td>
+                    <td   >{{ i.last_name }}</td>
+                      <td  >{{ i.email }}</td>
+                    <td >{{ i.CreditScore }}</td>
+                    <td >{{ i.RequestedLoanAmount }}</td>
+                    <td >{{ i.DurationInMonths }}</td>
+
+                    <td><a href="ApplicationStatus?id={{ i.id }}" > sttaus</a>
+
+                       </td>
+
+                </tr>
+                {% endfor %}
+
+
+                </tbody>
+          </div></div> </table>

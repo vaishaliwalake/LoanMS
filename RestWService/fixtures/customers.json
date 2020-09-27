@@ -1,0 +1,8 @@
+[
+  {
+    "model": "selfserv.Customers",
+    "fields": {
+      "first_name": "abcde",
+      "last_name": " Street"
+    }
+  }]

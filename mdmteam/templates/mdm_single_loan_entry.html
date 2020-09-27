@@ -1,0 +1,190 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    </head>
+
+<div style="background-color:red; color:white;" class="jumbotron">
+  <h1 class="display-4">Welcome to Awesome Bank MDM Home Page</h1>
+  <p class="lead">Manage Bank Master Data</p>
+  <hr class="my-4">
+  <p><i class="fa fa-exclamation-triangle text-warning" aria-hidden="true"></i> This is for authorized users only <i class="fa fa-exclamation-triangle text-warning" aria-hidden="true"></i></p>
+</div>
+
+<div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="create-tab" data-toggle="tab" href="#create" role="tab"
+                   aria-controls="create"
+                   aria-selected="true">Create Loan product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit"
+                   aria-selected="true">Edit Loan product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="delete-tab" data-toggle="tab" href="#delete" role="tab" aria-controls="delete"
+                   aria-selected="true">Delete Loan product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="upload-tab" data-toggle="tab" href="#upload" role="tab" aria-controls="upload"
+                   aria-selected="true">Upload CSV file</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="create" role="tabpanel" aria-labelledby="create-tab">
+            <br>
+            <!-- Create Start -->
+            <div>
+                <form method="post" action= 'reports' >
+                    <h5>Create New Loan Product</h5>
+
+
+                    {% csrf_token %}
+                    <div class="form-group">
+
+                        <label for="LoanID">Loan ID</label>
+                        {{form.LoanID}}<br>
+
+                        <label for="CreditScoreMin">Credit Score Min</label>
+                        {{form.CreditScoreMin}}<br>
+
+                        <label for="CreditScoreMax">Credit Score Max</label>
+                        {{form.CreditScoreMax}}<br>
+
+                        <label for="LoanAmountMin">Loan Amount Min</label>
+                        {{form.LoanAmountMin}}<br>
+
+                        <label for="LoanAmountMax">Loan Amount Max</label>
+                        {{form.LoanAmountMax}}<br>
+
+                        <label for="IntrestRatePct">Interest rate</label>
+                        {{form.IntrestRatePct}}<br>
+
+                        <label for="DurationMonths">Loan Duration in Months</label>
+                        {{form.DurationMonths}}<br>
+
+                        <label for="eff_from_date">Eff From Date</label>
+                        {{form.eff_from_date}}<br>
+
+                        <label for="eff_to_date">Eff To Date</label>
+                        {{form.eff_to_date}}<br>
+
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-warning">submit</button>
+                    </div>
+
+                </form>
+            </div>
+            <!-- Create End -->
+        </div>
+
+        <div class="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="edit-tab">
+            <form method="post" action= 'edit' >
+                {% csrf_token %}
+                <h5>update data?: Enter Loanid</h5>
+                <div class="form-group">
+
+                    <label for="LoanID">Loan ID</label>
+                    {{form.LoanID}}<br>
+
+                    <label for="CreditScoreMin">Credit Score Min</label>
+                    {{form.CreditScoreMin}}<br>
+
+                    <label for="CreditScoreMax">Credit Score Max</label>
+                    {{form.CreditScoreMax}}<br>
+
+                    <label for="LoanAmountMin">Loan Amount Min</label>
+                    {{form.LoanAmountMin}}<br>
+
+                    <label for="LoanAmountMax">Loan Amount Max</label>
+                    {{form.LoanAmountMax}}<br>
+
+                    <label for="IntrestRatePct">Interest rate</label>
+                    {{form.IntrestRatePct}}<br>
+
+                    <label for="DurationMonths">Loan Duration in Months</label>
+                    {{form.DurationMonths}}<br>
+
+                    <label for="eff_from_date">Eff From Date</label>
+                    {{form.eff_from_date}}<br>
+
+                    <label for="eff_to_date">Eff To Date</label>
+                    {{form.eff_to_date}}<br>
+                    <input type="submit" class=" btn btn-info" value="Submit"/>
+                    <a class="btn btn-info" onclick= 'edit' >Cancel</a>
+
+
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="delete" role="tabpanel" aria-labelledby="delete-tab">
+            {% block content %}
+            {% endblock %}
+            <br>
+            <!-- Create Start -->
+            <form method="get" action='deletereport' >
+
+
+                {% csrf_token %}
+                <div class="form-group">
+
+
+                    <h5>Delete Loan record?:</h5>Enter Loanid{{LoanID }}
+                    <br>
+
+                    <br>
+                    <label for="LoanID">Loan ID</label>
+                    {{form.LoanID}}<br>
+                    <input type="submit" onclick=" return myFunction()" class="btn btn-info" value="Submit"/>
+                    <script>
+                     function myFunction() {
+                        if (confirm("Confirm message")) {
+                                // do something
+                          }
+                           else {
+                           return false;
+                                  }
+                                           }
+                    </script>
+
+
+                </div>
+
+
+            </form>
+
+        </div>
+        <div class="tab-pane fade " id="upload" role="tabpanel" aria-labelledby="upload-tab">
+            <form method="POST" action="UploadCsv" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+
+                    <h5> <label for="file1"> Upload a file</label></h5>
+
+                    <input type="file" id="file1" name="file"><br>
+
+                    <button type="submit" class="btn btn-info">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+ </div>
+</div>
+
+ </body>
+ </html>

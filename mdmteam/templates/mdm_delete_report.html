@@ -1,0 +1,58 @@
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    </head>
+
+
+  <div class="container-fluid"  color= "blue" id="edit" align="left">
+           <h1 >Enter details to update </h1>
+            <form method="post" action="{% url 'edit' %}" class="justify-content-center">
+                {% csrf_token %}
+              <div class="form-group form-group-lg">
+
+                <div class="form-group " >
+
+                    <label for="LoanID">Loan ID</label>
+                    {{form.LoanID}}<br>
+
+                    <label for="CreditScoreMin" >Credit Score Min</label>
+                    {{form.CreditScoreMin}}<br>
+
+                    <label for="CreditScoreMax" >Credit Score Max</label>
+                    {{form.CreditScoreMax}}<br>
+
+                    <label for="LoanAmountMin" >Loan Amount Min</label>
+                    {{form.LoanAmountMin}}<br>
+
+                    <label for="LoanAmountMax" >Loan Amount Max</label>
+                    {{form.LoanAmountMax}}<br>
+
+                    <label for="IntrestRatePct">Interest rate</label>
+                    {{form.IntrestRatePct}}<br>
+
+                     <label for="DurationMonths" >Loan Duration in Months</label>
+                     {{form.DurationMonths}}<br>
+
+                    <label for="eff_from_date">Eff From Date</label>
+                    {{form.eff_from_date}}<br>
+
+                    <label for="eff_to_date">Eff To Date</label>
+                    {{form.eff_to_date}}<br>
+                    <input type="submit" class=" btn btn-info" value="Submit"/>
+                    <a class="btn btn-info" onclick="window.location.href =
+                    'reports';">Cancel</a>
+
+
+                </div>
+              </div> </form>
+        </div>
+
+</html>

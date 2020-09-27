@@ -1,0 +1,18 @@
+<html>
+<body style="background-color:Ivory;" >
+ <h1 class="display-4" >Hello, Apply for Loan!</h1>
+<form method="post" action="CustSaveData" >
+{% csrf_token %}
+     <input type="hidden" name="cust_id" value="{{c_data.0}}">
+    <p>First Name: <input type="text" name="first_name" value="{{c_data.1}}"></p>
+    <p>Last Name: <input type="text" name="last_name" value="{{c_data.2}}"></p>
+    <p>email: <input type="text" name="email" value="{{c_data.3}}"></p>
+
+    <p>CreditScore: <input type="number" name="CreditScore"></p>
+    <p> RequestedLoanAmount:<input type="number" name="RequestedLoanAmount"></p>
+    <p> DurationInMonths:<input type="number" name="DurationInMonths"></p>
+
+    <p><input type="submit"> </p>
+</form>
+</body>
+</html>

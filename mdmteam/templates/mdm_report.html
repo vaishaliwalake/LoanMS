@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+<div style="background-color:red; color:white;" class="jumbotron">
+  <h1 class="display-4">Welcome to Awesome Bank MDM Home Page</h1>
+  <p class="lead">Manage Bank Master Data</p>
+  <hr class="my-4">
+  <p><i class="fa fa-exclamation-triangle text-warning" aria-hidden="true"></i> This is for authorized users only <i class="fa fa-exclamation-triangle text-warning" aria-hidden="true"></i></p>
+</div>
+<form>
+{% csrf_token %}
+<div  class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <table  class="zebra" style="max-width:300px">
+                <thead class="table table-dark">
+                <tr>
+                    <th scope="col">loan_mdm_lookup_id</th>
+                    <th scope="col">CreditScoreMin</th>
+                    <th scope="col">CreditScoreMax</th>
+                    <th scope="col">LoanAmountMin</th>
+                    <th scope="col">LoanAmountMax</th>
+                    <th scope="col">IntrestRatePct</th>
+                    <th scope="col">DurationMonths</th>
+                    <th scope="col">eff_from_date</th>
+                    <th scope="col">eff_to_date</th>
+                    <th scope="col">edit/delete</th>
+                </tr>
+                </thead>
+                <tbody class="table table-primary">
+
+                {% for i in l_data %}
+                <tr>
+
+                    <th scope="row" >{{ i.loan_mdm_lookup_id }}</th>
+                    <td contenteditable='true'  >{{ i.CreditScoreMin }}</td>
+                    <td contenteditable='true' >{{ i.CreditScoreMax }}</td>
+                    <td contenteditable='true' >{{ i.LoanAmountMin }}</td>
+                    <td contenteditable='true' >{{ i.LoanAmountMax }}</td>
+                    <td contenteditable='true' >{{ i.IntrestRatePct }}</td>
+                    <td contenteditable='true' >{{ i.DurationMonths }}</td>
+                    <td contenteditable='true' >{{ i.eff_from_date }}</td>
+                    <td contenteditable='true' >{{ i.eff_to_date }}</td>
+                    <td><a href="deletereport?LoanID={{ i.loan_mdm_lookup_id }}" > delete</a>
+                        /<a   href="loadEditreportById?id={{ i.loan_mdm_lookup_id }}">edit</a>
+
+                       </td>
+
+                </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+</div>
+    </form>
+  </body>
+</html>

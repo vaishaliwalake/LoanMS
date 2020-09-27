@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+<form action="validate">
+{% csrf_token %}
+<div  class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <table  class="zebra" style="max-width:300px">
+                <thead class="table table-dark">
+                <tr>
+                    <th scope="col">id</th>>
+                   <th scope="col">first_name</th>
+                    <th scope="col">last_name</th>
+                     <th scope="col">email</th>
+                    <th scope="col">CreditScore</th>
+                    <th scope="col">RequestedLoanAmount</th>
+                    <th scope="col">DurationMonths</th>
+                    <th scope="col">Status</th>
+
+                </tr>
+                </thead>
+                <tbody class="table table-primary">
+
+                {% for i in l_data %}
+                <tr>
+
+                    <th scope="row" >{{ i.id }}</th>
+                    <td   >{{ i.first_name }}</td>
+                    <td   >{{ i.last_name }}</td>
+                      <td  >{{ i.email }}</td>
+                    <td >{{ i.CreditScore }}</td>
+                    <td >{{ i.RequestedLoanAmount }}</td>
+                    <td >{{ i.DurationInMonths }}</td>
+                    <td >{{ i.Status }}</td>
+
+
+
+                </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+</div>
+    </form>
+  </body>
+</html>

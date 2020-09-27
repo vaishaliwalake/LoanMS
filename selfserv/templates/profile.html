@@ -1,0 +1,18 @@
+<form>
+<div class="container">
+      <a class="btn btn-primary" href="logout" role="button">Logout</a>
+
+  {% for post in query %}
+
+    <h2>Welcome <span style="color: #F46404;">{{ post.username}}</span>></h2>
+         	<p>Email id: {{ post.email}} </p>
+         	<p>First Name: {{ post.first_name}} </p>
+         	<p>Last Name: {{ post.last_name}} </p>
+
+    <h1>Apply for loan </h1><a href="CustSelfserve?cust_id={{ post.id}}">Apply for loan</a>
+    <h1>check application status  </h1><a href="CheckStatus?cust_id={{ post.id}}">check application status</a>
+
+  {% endfor %}
+
+</div>
+</form>>
